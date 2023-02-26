@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url("../../challenge/design/mobile-design.jpg");
+  background-size: 375px 667px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  min-height: 667px;
+}
+@media screen and (min-width: 1440px) {
+  body {
+    background-image: url("../../challenge/design/desktop-design.jpg");
+    background-size: 1440px 800px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 800px;
+  }
+}

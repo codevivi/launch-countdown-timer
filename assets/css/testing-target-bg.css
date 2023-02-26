@@ -1,21 +1,25 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
+.test-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
   background-image: url("../../challenge/design/mobile-design.jpg");
   background-size: 375px 667px;
   background-repeat: no-repeat;
   background-position: top center;
-  min-height: 667px;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  opacity: 0.3;
+  z-index: 1;
 }
 @media screen and (min-width: 1440px) {
-  body {
+  .test-bg {
     background-image: url("../../challenge/design/desktop-design.jpg");
     background-size: 1440px 800px;
     background-repeat: no-repeat;
     background-position: top center;
-    min-height: 800px;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
   }
 }

@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+
+/*
+#191a24 cards shadow
+#1e1f29 gradient start?
+#343650 card bottom?
+#ffffff h1
+#fb6087 numbers
+#8486a9 text and icons
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  font-size: 14px;
+  font-family: "Red Hat Text", sans-serif;
+  color: #8486a9;
+  background-color: #1e1f29;
+  background: linear-gradient(180deg, #1e1e28 3.71%, #201e29 25.04%, #211d2b 43.53%, #231d2b 61.54%, #241c2b 76.71%, #30243a 94.73%);
+  position: relative;
+}
+.bg-1 {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: url("../images/bg-stars.svg");
+}
+.bg-2 {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: url("../images/pattern-hills.svg");
+  background-position-x: 125vw;
+  background-position-y: 94%;
+  background-size: 154vh;
+  background-attachment: fixed;
+  background-repeat: repeat-x;
+}
+@media screen and (min-width: 776px) {
+  .bg-2 {
+    background-position: center bottom;
+    background-size: 100% 25vh;
+  }
+}

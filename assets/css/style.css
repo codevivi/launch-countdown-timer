@@ -22,7 +22,8 @@ body {
   color: #8486a9;
   background-color: #1e1f29;
   background: linear-gradient(180deg, #1e1e28 3.71%, #201e29 25.04%, #211d2b 43.53%, #231d2b 61.54%, #241c2b 76.71%, #30243a 94.73%);
-  position: relative;
+  /* position: relative; */
+  /* z-index: 5; */
 }
 .bg-1 {
   width: 100%;
@@ -45,5 +46,24 @@ body {
   .bg-2 {
     background-position: center bottom;
     background-size: 100% 25vh;
+  }
+}
+
+.container {
+  max-width: 328px;
+  width: 100%;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 776px) {
+  .container {
+    max-width: 692px;
+  }
+}
+
+@media screen and (min-width: 1450px) {
+  .container {
+    max-width: 100%;
+    width: 50%;
   }
 }

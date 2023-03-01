@@ -6,7 +6,7 @@
 
 This is a solution to the [Launch countdown timer challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-🌐 **Site published at**: [https://codevivi.github.io/launch-countdown-timer](https://codevivi.github.io/launch-countdown-timer) ⚠️ Only background added
+🌐 **Site published at**: [https://codevivi.github.io/launch-countdown-timer](https://codevivi.github.io/launch-countdown-timer)
 
 📈 **Status**: Working on
 

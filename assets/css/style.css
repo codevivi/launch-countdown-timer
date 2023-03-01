@@ -13,10 +13,13 @@
   margin: 0;
   padding: 0;
 }
+html {
+  height: 100%;
+}
 body {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   font-size: 14px;
   font-family: "Red Hat Text", sans-serif;
   color: #8486a9;
@@ -28,13 +31,13 @@ body {
 .bg-1 {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-image: url("../images/bg-stars.svg");
 }
 .bg-2 {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  /* min-height: 100%; */
   background-image: url("../images/pattern-hills.svg");
   background-position-x: 125vw;
   background-position-y: 94%;
@@ -50,10 +53,17 @@ body {
 }
 
 .container {
-  max-width: 328px;
   width: 100%;
+  height: 100%;
+  min-height: 100vh;
   padding: 1rem;
   margin: auto;
+}
+@media screen and (min-width: 370px) {
+  .container {
+    max-width: 328px;
+    padding: 0;
+  }
 }
 
 @media screen and (min-width: 756px) {
@@ -62,15 +72,18 @@ body {
   }
 }
 
-@media screen and (min-width: 1450px) {
+@media screen and (min-width: 1930px) {
   .container {
     max-width: 100%;
     width: 50%;
   }
 }
 
+/************ H1******************/
 h1 {
-  margin-top: 19vh;
+  display: block;
+  padding-top: 21.3vh;
+  margin-bottom: 8.5vh;
   color: #ffffff;
   font-size: 18px;
   letter-spacing: 0.335em;
@@ -81,14 +94,120 @@ h1 {
 
 @media screen and (min-width: 756px) {
   h1 {
-    margin-top: 14.9vh;
+    padding-top: 17vh;
     font-size: 20px;
     letter-spacing: 0.44em;
+    margin-bottom: 13.5vh;
   }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1930px) {
   h1 {
-    font-size: 24px;
+    font-size: 2.5vw;
   }
 }
+
+/************ H1******************/
+/************ Timer section******************/
+.cards-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 2%; */
+}
+.card-wrapper {
+  /* flex: 1 1 20%; */
+  width:22%;
+
+}
+.card {
+  height: auto;
+  width: 100%;
+  border-radius:5px;
+  overflow: hidden;
+}
+.shadow {
+  background-color: #191a24;
+  width: 100%;
+  height: 0;
+  padding-bottom: 98%;
+  position:relative;
+}
+.display {
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343650;
+  border-radius:5px;
+  height:93%
+}
+.shadow-over-disp {
+  position:absolute;
+  top:0;
+  left:0;
+  height: 50%;
+  min-height: 50%;
+  width: 100%;
+  background-color: rgba(44, 44, 69, 0.55);
+ border-bottom:2px inset rgba(44, 44, 69, 0.10);
+}
+
+.shadow-over-disp::after, .shadow-over-disp::before {
+  content: '';
+  padding:5%;
+  background-color: #191a24;
+  border-radius: 50%;
+  position:absolute;
+  bottom:-13%;
+  left:-6%;
+}
+ .shadow-over-disp::before {
+  bottom:-13%;
+  left:96%;
+}
+.time {
+  font-size: 1.5rem;
+  color:#fb6087;
+  background-color: #343650;
+}
+
+@media screen and (min-width: 320px) {
+.display {
+  padding: 14%;
+}
+.time {
+  font-size: 2.2rem;
+}
+.cards-container {
+  gap:4.5%;
+}
+
+.card-wrapper {
+  flex: 1 1 25%;
+}
+}
+@media screen and (min-width: 756px) {
+  .card {
+  border-radius:9px;
+
+  }
+ .display {
+  height:95%;
+  border-radius:9px;
+}
+
+.time {
+  font-size: 5rem;
+}
+
+@media screen and (min-width: 1930px) {
+.time {
+  font-size: 5vw;
+}
+}
+/************ Timer section******************/

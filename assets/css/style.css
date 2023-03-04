@@ -195,23 +195,22 @@ h1 {
   width: 100;
 }
 .attribution {
-  position:fixed;
-  bottom:0.35rem;
+  position: fixed;
+  bottom: 0.35rem;
   opacity: 0.7;
   width: 100%;
-  padding-left:1%;
+  padding-left: 1%;
   text-align: left;
-  color:#a1a2c7;
-
+  color: #a1a2c7;
 }
 .footer a {
-  color:inherit;
-  color:#a1a2c7;
+  color: inherit;
+  color: #a1a2c7;
   transition: color 0.2s;
 }
-.footer a:focus, .footer a:hover {
+.footer a:focus,
+.footer a:hover {
   color: #fb6087;
-
 }
 .attribution a svg {
   pointer-events: none;
@@ -251,11 +250,11 @@ h1 {
     font-size: 5rem;
   }
 
-.footer {
-  position: absolute;
-  bottom: 8vh;
+  .footer {
+    position: absolute;
+    bottom: 8vh;
+  }
 }
-
 @media screen and (min-width: 1930px) {
   .time {
     font-size: 5vw;

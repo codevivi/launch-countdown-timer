@@ -29,9 +29,28 @@
         <h1>We're launching soon</h1>
         <div class="cards-container">
           <div class="card-wrapper">
-            <div class="card">
+            <div class="card ">
               <div class="shadow">
-                <div class="display">
+                <!-- next-top yellow -->
+                <div class="display next-top">
+                  <div class="shadow-over-disp">
+                  </div>
+                  <span class="time">07</span>
+                </div>
+                <!-- current bottom/ -->
+                <div class="display current-bottom">
+                  <div class="shadow-over-disp">
+                  </div>
+                  <span class="time">08</span>
+                </div>
+
+                <div class="display next-bottom">
+                  <div class="shadow-over-disp">
+                  </div>
+                  <span class="time">07</span>
+                </div>
+                <!-- current top/ -->
+                <div class="display current-top">
                   <div class="shadow-over-disp">
                   </div>
                   <span class="time">08</span>
@@ -110,6 +129,15 @@
       </footer>
     </div>
   </div>
+  <script>
+    let card = document.querySelector(".card:first-child");
+    card.addEventListener('click', () => {
+      card.classList.toggle("action");
+    })
+
+    console.log(card);
+
+  </script>
 </body>
 
 </html>

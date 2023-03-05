@@ -137,17 +137,18 @@ h1 {
   width: 100%;
   height: 0;
   padding-bottom: 98%;
+  padding-bottom: 100%;
   background-color: #191a24;
 }
 .display {
   position: absolute;
-  top: 0;
+  /* top: 0; */
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 93%;
+  /* height: 93%; */
   background-color: #343650;
   border-radius: 5px;
 }
@@ -159,7 +160,7 @@ h1 {
   height: 50%;
   min-height: 50%;
   background-color: rgba(44, 44, 69, 0.55);
-  border-bottom: 2px inset rgba(44, 44, 69, 0.1);
+  /* border-bottom: 2px inset rgba(44, 44, 69, 0.1); */
 }
 
 .shadow-over-disp::after,
@@ -261,3 +262,77 @@ h1 {
   }
 }
 /************ Timer section******************/
+.current-top .shadow-over-disp {
+  height: 100%;
+}
+.shadow {
+  position: relative;
+}
+.current-bottom {
+  bottom: 0;
+  overflow: hidden;
+  z-index: 13;
+}
+.next-top {
+  top: 0;
+  height: 50%;
+  overflow: hidden;
+  display: block;
+  z-index: 14;
+}
+
+.next-top .shadow-over-disp {
+  height: 100%;
+}
+.current-top {
+  top: 0%;
+  height: 50%;
+  display: block;
+
+  backface-visibility: hidden;
+  /* transform-style: preserve-3d; */
+  transform-origin: bottom left;
+  transform: rotateX(0deg);
+  overflow: hidden;
+  transition: all 250ms ease-in;
+  z-index: 15;
+}
+.current-top .shadow-over-disp {
+  height: 100%;
+}
+.action .current-top {
+  transform: rotateX(90deg);
+  border-top: 1px solid grey;
+}
+/*next bottom*/
+.next-bottom {
+  top: 0%;
+  height: 50%;
+  overflow: hidden;
+  display: block;
+  transform-origin: bottom left;
+  transform: rotateX(-90deg); /*7 start at -90* becomes next rename to next*/
+  z-index: 15;
+}
+.action .next-bottom {
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: waitAndDrop 250ms ease-out 250ms forwards;
+}
+
+.next-bottom .time {
+  display: block;
+  transform: rotateX(-180deg);
+}
+.next-bottom .shadow-over-disp {
+  height: 100%;
+  display: none;
+}
+
+@keyframes waitAndDrop {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(-180deg);
+  }
+}

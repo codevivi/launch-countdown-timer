@@ -3,106 +3,114 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
   <title>Frontend Mentor | Launch countdown timer</title>
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/testing-target-bg.css">
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <!-- <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style> -->
 </head>
 
 <body>
-  <!-- remove after done testing  -->
-  <!-- <div class="test-bg"></div> -->
 
   <div class="bg-1">
     <div class="bg-2">
-      <main class="container">
+      <main>
 
         <h1>We're launching soon</h1>
         <div class="cards-container">
+
           <div class="card-wrapper">
             <div class="card ">
-              <div class="shadow">
+              <div class="display next-top">
+                <span class="time">07</span>
+              </div>
 
-                <!-- next-top yellow -->
-                <div class="display next-top">
-                  <div class="shadow-over-disp">
-                  </div>
-                  <span class="time">22</span>
-                </div>
-                <!-- current bottom/ -->
-                <div class="display current-bottom">
-                  <div class="shadow-over-disp">
-                  </div>
-                  <span class="time">23</span>
-                </div>
+              <div class="display current-bottom">
+                <span class="time">08</span>
+              </div>
 
-                <div class="display next-bottom">
-                  <div class="shadow-over-disp">
-                  </div>
-                  <span class="time">22</span>
-                </div>
-                <!-- current top/ -->
-                <div class="display current-top">
-                  <div class="shadow-over-disp">
-                  </div>
-                  <span class="time">23</span>
-                </div>
+              <div class="display next-bottom">
+                <span class="time">07</span>
+              </div>
+
+              <div class="display current-top">
+                <span class="time">08</span>
               </div>
             </div>
+
             <p class="card-text">Days</p>
           </div>
+
           <div class="card-wrapper">
             <div class="card">
-              <div class="shadow">
-                <div class="display">
-                  <div class="shadow-over-disp">
-                  </div>
-                  <span class="time">23</span>
-                </div>
+
+              <div class="display next-top">
+                <span class="time">22</span>
+              </div>
+
+              <div class="display current-bottom">
+                <span class="time">23</span>
+              </div>
+
+              <div class="display next-bottom">
+                <span class="time">22</span>
+              </div>
+
+              <div class="display current-top">
+                <span class="time">23</span>
               </div>
             </div>
+
             <p class="card-text">Hours</p>
           </div>
+
           <div class="card-wrapper">
             <div class="card">
-              <div class="shadow">
-                <div class="display">
-                  <div class="shadow-over-disp">
-                  </div>
-                  <span class="time">55</span>
-                </div>
+
+              <div class="display next-top">
+                <span class="time">54</span>
+              </div>
+
+              <div class="display current-bottom">
+                <span class="time">55</span>
+              </div>
+
+              <div class="display next-bottom">
+                <span class="time">54</span>
+              </div>
+
+              <div class="display current-top">
+                <span class="time">55</span>
               </div>
             </div>
+
             <p class="card-text">Minutes</p>
           </div>
+
           <div class="card-wrapper">
             <div class="card">
-              <div class="shadow">
-                <div class="display">
-                  <div class="shadow-over-disp">
-                  </div>
-                  <span class="time">41</span>
-                </div>
+
+              <div class="display next-top">
+                <span class="time">40</span>
+              </div>
+
+              <div class="display current-bottom">
+                <span class="time">41</span>
+              </div>
+
+              <div class="display next-bottom">
+                <span class="time">40</span>
+              </div>
+
+              <div class="display current-top">
+                <span class="time">41</span>
               </div>
             </div>
+
             <p class="card-text">Seconds</p>
           </div>
+
         </div>
-        <!--
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
       </main>
       <footer class="footer">
         <div class="footer-social-icons">
@@ -131,12 +139,13 @@
     </div>
   </div>
   <script>
-    let card = document.querySelector(".card:first-child");
-    card.addEventListener('click', () => {
-      card.classList.toggle("action");
+    ///temp to test animation
+    let cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        card.classList.toggle("action");
+      })
     })
-
-    console.log(card);
 
   </script>
 </body>

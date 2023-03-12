@@ -8,7 +8,7 @@ This is a solution to the [Launch countdown timer challenge on Frontend Mentor](
 
 🌐 **Site published at**: [https://codevivi.github.io/launch-countdown-timer](https://codevivi.github.io/launch-countdown-timer)
 
-📈 **Status**: Working on
+📈 **Status**: Working on. Added animation on click for testing. On second click backward animation doesn't look nice, but it will be animated only one way.
 
 **Solution URL**: Not Yet
 

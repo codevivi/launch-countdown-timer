@@ -20,22 +20,24 @@ function DisplayDom(card, currentEls, nextEls) {
   this.currentEls = currentEls;
   this.nextEls = nextEls;
 }
-DisplayDom.prototype.setInitial = function setInitial(nextValue, currentValue) {
+DisplayDom.prototype.setInitial = function setInitial(value, nextValue) {
+  this.currentEls.forEach((el) => {
+    el.textContent = pad0(value);
+  });
   this.nextEls.forEach((el) => {
     el.textContent = pad0(nextValue);
-  });
-  this.currentEls.forEach((el) => {
-    el.textContent = pad0(currentValue);
   });
 };
 
 DisplayDom.prototype.setNext = function setNext(value) {
   let currentValue = this.nextEls[0].textContent;
   value = pad0(value);
+  console.log("**************");
+  console.log(value, currentValue);
+  console.log("**************");
   if (value === currentValue) {
     return;
   }
-
   this.cardEl.classList.add("action");
 
   setTimeout(() => {
@@ -55,57 +57,81 @@ const minutesDom = new DisplayDom(minutesCardEl, minutesElements, minutesNextEle
 const hoursDom = new DisplayDom(hoursCardEl, hoursElements, hoursNextElements);
 const daysDom = new DisplayDom(daysCardEl, daysElements, daysNextElements);
 
-//same as on design
-const dueDate = new Date(Date.now() + 1000 * (41 + 55 * 60 + 23 * 3600 + 8 * 86400));
+//same as on design //always resets for now
+const dueDate = new Date(Date.now() + 1000 * (1 + 55 * 60 + 23 * 3600 + 8 * 86400));
+// const dueDate = new Date(Date.now() + 1000 * 4); //4 seconds for testing
 
-// let dueDate = localStorage.getItem("dueDate");
-// if (!dueDate) {
-//   dueDate = exampleDueDate; // months in js starts from 0
-//   localStorage.setItem("dueDate", dueDate.toString());
-// } else {
-//   dueDate = Date.parse(dueDate);
-// }
-
-setInitialTimeLeft(calcTimeLeft(), calcTimeLeft(0));
-let intervalId = setInterval(calcTimeLeftAndUpdateView, 1000);
+setInitialDisplay(calcUnitsLeft(timeLeftInSeconds(dueDate)));
+// let intervalId = setInterval(calcTimeLeftAndUpdateView, 1000);
 
 function calcTimeLeftAndUpdateView() {
-  setTimeLeft(calcTimeLeft());
+  let timeLeft = calcUnitsLeft(timeLeftInSeconds(dueDate));
+  updateDisplay(timeLeft);
+  if (timeLeft.end) {
+    clearInterval(intervalId);
+    setTimeout(() => {
+      //wait to finish animation
+      titleEl.textContent = "Countdown finished on " + dueDate.toLocaleDateString() + " " + dueDate.toLocaleTimeString();
+    }, 1000);
+    return;
+  }
 }
 
-function calcTimeLeft(delay = 1) {
-  //calculates time with one second delay as updating next display with
-  let nowDate = new Date();
-  let allTimeInSeconds = Math.floor((dueDate - nowDate) / 1000) - delay; //+1  as will be updating next display
-
-  // if (allTimeInSeconds <= 0) {
-  //   clearInterval(intervalId);
-  //   //  secondsEl.textContent = "00";
-  //   titleEl.textContent = `Countdown finished on ${exampleDueDate.toLocaleString()}`;
-  //   return;
-  // }
-
-  let daysLeft = Math.floor(allTimeInSeconds / (3600 * 24));
+function calcUnitsLeft(allTimeInSeconds) {
+  let end = false;
+  if (allTimeInSeconds < 0) {
+    end = true;
+  }
+  let days = Math.floor(allTimeInSeconds / (3600 * 24));
   let moreSeconds = allTimeInSeconds % (3600 * 24);
-  let hoursLeft = Math.floor(moreSeconds / 3600);
+  let hours = Math.floor(moreSeconds / 3600);
   moreSeconds = moreSeconds % 3600;
-  let minutesLeft = Math.floor(moreSeconds / 60);
-  let secondsLeft = moreSeconds % 60;
-  return { daysLeft, hoursLeft, minutesLeft, secondsLeft };
-}
-function setTimeLeft(timeLeft) {
-  daysDom.setNext(timeLeft.daysLeft);
-  hoursDom.setNext(timeLeft.hoursLeft);
-  minutesDom.setNext(timeLeft.minutesLeft);
-  secondsDom.setNext(timeLeft.secondsLeft);
-}
-function setInitialTimeLeft(nextTimeLeft, currentTimeLeft) {
-  daysDom.setInitial(nextTimeLeft.daysLeft, currentTimeLeft.daysLeft);
-  hoursDom.setInitial(nextTimeLeft.hoursLeft, currentTimeLeft.hoursLeft);
-  minutesDom.setInitial(nextTimeLeft.minutesLeft, currentTimeLeft.minutesLeft);
-  secondsDom.setInitial(nextTimeLeft.secondsLeft, currentTimeLeft.secondsLeft);
+  let minutes = Math.floor(moreSeconds / 60);
+  let seconds = moreSeconds % 60;
+  return { days, hours, minutes, seconds, end };
 }
 
+function updateDisplay(timeLeft) {
+  daysDom.setNext(timeLeft.days);
+  hoursDom.setNext(timeLeft.hours);
+  minutesDom.setNext(timeLeft.minutes);
+  secondsDom.setNext(timeLeft.seconds);
+}
+
+function setInitialDisplay({ days, hours, minutes, seconds, end }) {
+  console.log(days, hours, minutes, seconds);
+  if (end) {
+    daysDom.setInitial(0, 0);
+    hoursDom.setInitial(0, 0);
+    minutesDom.setInitial(0, 0);
+    secondsDom.setInitial(0, 0);
+    return;
+  }
+  let nextDays = days > 0 ? days - 1 : 0;
+
+  let dateOnHourChange = new Date(dueDate.getTime() - ((dueDate.getSeconds() + 1) * 1000 + dueDate.getMinutes() * 60 * 1000));
+  console.log(dueDate);
+  console.log(dateOnHourChange);
+  let nextHours = calcUnitsLeft(timeLeftInSeconds(dateOnHourChange)).hours;
+  if (nextHours < 0) {
+    nextHours = 0;
+  }
+  let dateOnMinuteChange = new Date(dueDate.getTime() - (dueDate.getSeconds() + 1) * 1000);
+  let nextMinutes = calcUnitsLeft(timeLeftInSeconds(dateOnMinuteChange)).minutes;
+  if (nextMinutes < 0) {
+    nextMinutes = 0;
+  }
+  let nextSeconds = seconds === 0 ? 59 : seconds - 1;
+  console.log(nextDays, nextHours, nextMinutes, nextSeconds);
+  daysDom.setInitial(days, nextDays);
+  hoursDom.setInitial(hours, nextHours);
+  minutesDom.setInitial(minutes, nextMinutes);
+  secondsDom.setInitial(seconds, nextSeconds);
+}
+
+function timeLeftInSeconds(dueDate) {
+  return Math.floor((dueDate.getTime() - Date.now()) / 1000);
+}
 function pad0(num) {
   let str = num.toString();
   if (str.length < 2) {

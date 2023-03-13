@@ -109,7 +109,7 @@ h1 {
     gap: 48px;
   }
   .card-wrapper {
-    max-width: 210px;
+    max-width: 211px;
   }
 }
 
@@ -141,6 +141,7 @@ h1 {
   background-color: #343650;
   border-radius: 5px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* holes on left  sides */
@@ -255,7 +256,7 @@ h1 {
     border-bottom-width: 12px;
   }
   .time {
-    font-size: 120px;
+    font-size: 119px;
   }
 }
 /************Display & timer for animation ******************/
@@ -272,12 +273,12 @@ h1 {
 .current-top {
   max-height: 50%;
   min-height: 50%;
-  /* transition: all 250ms ease-in; */
   transform-origin: bottom left;
   transform: rotateX(0deg);
   color: #d54f6b;
   background-color: #2c2c44;
-  border-top: 1px solid transparent;
+  /* border-top: 1px solid rgba(128, 128, 128, 0.089); */
+  border-top: 1px solid black;
   z-index: 15;
 }
 
@@ -301,7 +302,6 @@ h1 {
   z-index: 14;
   color: #d54f6b;
   background-color: #2c2c44;
-  border-top: 1px solid transparent;
 }
 
 .next-bottom {
@@ -311,7 +311,6 @@ h1 {
   height: 50%;
   transform-origin: bottom left;
   transform: rotateX(-90deg); /*7 start at -90* becomes next rename to next*/
-  border-top: 1px solid rgba(128, 128, 128, 0.379);
   z-index: 15;
   color: #fb6087;
   background-color: #343650;
@@ -319,13 +318,14 @@ h1 {
 .action .current-top {
   transform: rotateX(90deg);
   transition: all 500ms ease-in;
-  border-top: 1px solid grey;
-
   color: #fb6087;
   background-color: #343650;
+  border-top: 1px solid black;
 }
 .action .next-bottom {
-  animation: waitAndDrop 400ms ease-out 500ms forwards;
+  animation: waitAndDrop 500ms ease-out 500ms forwards;
+  border-top: 1px solid grey;
+  border-top: 1px solid black;
 }
 
 .next-bottom .time {

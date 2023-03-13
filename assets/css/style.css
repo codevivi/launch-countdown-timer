@@ -206,7 +206,7 @@ h1 {
 .footer a {
   color: inherit;
   color: #a1a2c7;
-  transition: color 0.2s;
+  transition: color 250ms;
 }
 
 .footer a:focus,
@@ -259,6 +259,7 @@ h1 {
   }
 }
 /************Display & timer for animation ******************/
+
 .current-top .time,
 .current-bottom .time,
 .next-top .time,
@@ -271,17 +272,13 @@ h1 {
 .current-top {
   max-height: 50%;
   min-height: 50%;
-  transition: all 250ms ease-in;
+  /* transition: all 250ms ease-in; */
   transform-origin: bottom left;
   transform: rotateX(0deg);
   color: #d54f6b;
   background-color: #2c2c44;
+  border-top: 1px solid transparent;
   z-index: 15;
-}
-
-.action .current-top {
-  border-top: 1px solid #a1a2c7;
-  transform: rotateX(90deg);
 }
 
 .current-bottom {
@@ -292,6 +289,7 @@ h1 {
   color: #fb6087;
   background-color: #343650;
   z-index: 13;
+  border-bottom: 1px solid transparent;
 }
 
 .current-bottom .time {
@@ -304,6 +302,7 @@ h1 {
   z-index: 14;
   color: #d54f6b;
   background-color: #2c2c44;
+  border-top: 1px solid transparent;
 }
 
 .next-bottom {
@@ -313,13 +312,18 @@ h1 {
   height: 50%;
   transform-origin: bottom left;
   transform: rotateX(-90deg); /*7 start at -90* becomes next rename to next*/
+  border-top: 1px solid grey;
   z-index: 15;
-
   color: #fb6087;
   background-color: #343650;
 }
+.action .current-top {
+  transform: rotateX(90deg);
+  transition: all 500ms ease-in;
+  border-top: 1px solid grey;
+}
 .action .next-bottom {
-  animation: waitAndDrop 250ms ease-out 250ms forwards;
+  animation: waitAndDrop 400ms ease-out 500ms forwards;
 }
 
 .next-bottom .time {

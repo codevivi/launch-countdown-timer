@@ -289,7 +289,6 @@ h1 {
   color: #fb6087;
   background-color: #343650;
   z-index: 13;
-  border-bottom: 1px solid transparent;
 }
 
 .current-bottom .time {
@@ -312,7 +311,7 @@ h1 {
   height: 50%;
   transform-origin: bottom left;
   transform: rotateX(-90deg); /*7 start at -90* becomes next rename to next*/
-  border-top: 1px solid grey;
+  border-top: 1px solid rgba(128, 128, 128, 0.379);
   z-index: 15;
   color: #fb6087;
   background-color: #343650;
@@ -321,6 +320,9 @@ h1 {
   transform: rotateX(90deg);
   transition: all 500ms ease-in;
   border-top: 1px solid grey;
+
+  color: #fb6087;
+  background-color: #343650;
 }
 .action .next-bottom {
   animation: waitAndDrop 400ms ease-out 500ms forwards;

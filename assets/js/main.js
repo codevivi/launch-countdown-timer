@@ -55,18 +55,18 @@ const minutesDom = new DisplayDom(minutesCardEl, minutesElements, minutesNextEle
 const hoursDom = new DisplayDom(hoursCardEl, hoursElements, hoursNextElements);
 const daysDom = new DisplayDom(daysCardEl, daysElements, daysNextElements);
 
-const exampleDueDate = new Date(2023, 2, 13, 12, 0);
+//same as on design
+const dueDate = new Date(Date.now() + 1000 * (41 + 55 * 60 + 23 * 3600 + 8 * 86400));
 
-let dueDate = localStorage.getItem("dueDate");
-if (!dueDate) {
-  dueDate = exampleDueDate; // months in js starts from 0
-  localStorage.setItem("dueDate", dueDate.toString());
-} else {
-  dueDate = Date.parse(dueDate);
-}
+// let dueDate = localStorage.getItem("dueDate");
+// if (!dueDate) {
+//   dueDate = exampleDueDate; // months in js starts from 0
+//   localStorage.setItem("dueDate", dueDate.toString());
+// } else {
+//   dueDate = Date.parse(dueDate);
+// }
 
 setInitialTimeLeft(calcTimeLeft(), calcTimeLeft(0));
-
 let intervalId = setInterval(calcTimeLeftAndUpdateView, 1000);
 
 function calcTimeLeftAndUpdateView() {
@@ -76,7 +76,7 @@ function calcTimeLeftAndUpdateView() {
 function calcTimeLeft(delay = 1) {
   //calculates time with one second delay as updating next display with
   let nowDate = new Date();
-  let allTimeInSeconds = Math.floor((dueDate - nowDate) / 1000) + delay; //+1  as will be updating next display
+  let allTimeInSeconds = Math.floor((dueDate - nowDate) / 1000) - delay; //+1  as will be updating next display
 
   // if (allTimeInSeconds <= 0) {
   //   clearInterval(intervalId);

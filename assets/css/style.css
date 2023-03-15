@@ -8,14 +8,16 @@
 
 html {
   height: 100%;
+  background: #1a1823;
 }
 
 body {
   width: 100%;
   height: 100%;
   color: #8486a9;
-  background-color: #1e1f29;
-  background: linear-gradient(180deg, #1e1e28 3.71%, #201e29 25.04%, #211d2b 43.53%, #231d2b 61.54%, #241c2b 76.71%, #30243a 94.73%);
+  background: rgba(26, 24, 35, 0.712);
+  background: linear-gradient(0deg, rgba(53, 32, 70, 0.438) 0%, #1e1e287a 70%);
+  background-repeat: no-repeat;
   font-size: 14px;
   font-family: "Red Hat Text", sans-serif;
 }

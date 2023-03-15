@@ -278,7 +278,7 @@ h1 {
   color: #d54f6b;
   background-color: #2c2c44;
   /* border-top: 1px solid rgba(128, 128, 128, 0.089); */
-  border-top: 1px solid black;
+  border-top: 1px solid #201d2a;
   z-index: 15;
 }
 
@@ -320,12 +320,12 @@ h1 {
   transition: all 500ms ease-in;
   color: #fb6087;
   background-color: #343650;
-  border-top: 1px solid black;
+  border-top: 1px solid #201d2a;
 }
 .action .next-bottom {
   animation: waitAndDrop 500ms ease-out 500ms forwards;
   border-top: 1px solid grey;
-  border-top: 1px solid black;
+  border-top: 1px solid #201d2a;
 }
 
 .next-bottom .time {

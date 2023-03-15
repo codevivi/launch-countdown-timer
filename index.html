@@ -91,19 +91,19 @@
             <div id="seconds" class="card">
 
               <div class="display next-top">
-                <span class="time seconds-next">00</span>
+                <span class="time seconds-next"></span>
               </div>
 
               <div class="display current-bottom">
-                <span class="time seconds">00</span>
+                <span class="time seconds"></span>
               </div>
 
               <div class="display next-bottom">
-                <span class="time seconds-next">00</span>
+                <span class="time seconds-next"></span>
               </div>
 
               <div class="display current-top">
-                <span class="time seconds">00</span>
+                <span class="time seconds"></span>
               </div>
             </div>
 
@@ -138,17 +138,7 @@
       </footer>
     </div>
   </div>
-  <script>
-    ///temp to test animation
-    let cards = document.querySelectorAll(".card");
-    cards.forEach((card) => {
-      card.addEventListener('click', () => {
-        card.classList.toggle("action");
-      })
-    })
-
-  </script>
-  <script src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>
 </body>
 
 </html>

@@ -46,6 +46,7 @@ class DisplayDom {
 }
 
 const titleEl = document.getElementById("title");
+const timeEls = document.querySelectorAll(".time");
 
 const secondsCardEl = document.getElementById("seconds");
 const secondsElements = document.querySelectorAll(".seconds");
@@ -76,6 +77,11 @@ const daysDom = new DisplayDom(daysCardEl, daysElements, daysNextElements);
 
 //14 days as on requirements
 const dueDate = new Date(Date.now() + 1000 * (14 * 86400));
+
+if (getFullDaysLeft(dueDate) > 99) {
+  //reduce font size
+  timeEls.forEach((el) => el.classList.add("fit"));
+}
 
 calcTimeLeftAndUpdateView(dueDate);
 let intervalId = setInterval(() => {
@@ -119,6 +125,11 @@ function updateDisplay(timeLeft) {
 
 function timeLeftInSeconds(dueDate) {
   return Math.ceil((dueDate.getTime() - Date.now()) / 1000);
+}
+
+function getFullDaysLeft(dueDate) {
+  let seconds = timeLeftInSeconds(dueDate);
+  return Math.floor(seconds / (3600 * 24));
 }
 
 function pad0(num) {

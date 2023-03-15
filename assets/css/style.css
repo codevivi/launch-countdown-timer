@@ -181,6 +181,9 @@ h1 {
   height: 100%;
   font-size: 1.5rem;
 }
+.time.fit {
+  font-size: 1.3em;
+}
 
 .footer {
   position: absolute;
@@ -227,6 +230,10 @@ h1 {
   .time {
     font-size: 2.2rem;
   }
+
+  .time.fit {
+    font-size: 2em;
+  }
 }
 
 /* @media screen and (min-width: 756px) { */
@@ -251,6 +258,10 @@ h1 {
     font-size: 5rem;
   }
 
+  .time.fit {
+    font-size: 4em;
+  }
+
   .footer {
     position: absolute;
     bottom: 8vh;
@@ -262,6 +273,10 @@ h1 {
   }
   .time {
     font-size: 119px;
+  }
+
+  .time.fit {
+    font-size: 100px;
   }
 }
 /************Display & timer for animation ******************/

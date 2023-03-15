@@ -69,14 +69,15 @@ const hoursDom = new DisplayDom(hoursCardEl, hoursElements, hoursNextElements);
 const daysDom = new DisplayDom(daysCardEl, daysElements, daysNextElements);
 
 //same as on design
-// const dueDate = new Date(Date.now() + 1000 * (1 + 41 + 55 * 60 + 23 * 3600 + 8 * 86400));
+// const dueDate = new Date(Date.now() + 1000 * (41 + 55 * 60 + 23 * 3600 + 8 * 86400));
 
 //10 seconds for testing
-// const dueDate = new Date(Date.now() + 1000 * (8 + 1));
+// const dueDate = new Date(Date.now() + 1000 * 10);
 
 //14 days as on requirements
-const dueDate = new Date(Date.now() + 1000 * (14 * 86400 + 1));
+const dueDate = new Date(Date.now() + 1000 * (14 * 86400));
 
+calcTimeLeftAndUpdateView(dueDate);
 let intervalId = setInterval(() => {
   calcTimeLeftAndUpdateView(dueDate);
 }, 1000);

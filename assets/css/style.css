@@ -19,11 +19,13 @@ body {
   font-size: 14px;
   font-family: "Red Hat Text", sans-serif;
 }
+
 .bg-1 {
   width: 100%;
   height: 100%;
   background-image: url("../images/bg-stars.svg");
 }
+
 .bg-2 {
   width: 100%;
   height: 100%;
@@ -33,6 +35,7 @@ body {
   background-size: 154vh;
   background-attachment: fixed;
   background-repeat: repeat-x;
+  min-height: 500px;
 }
 
 @media screen and (min-width: 776px) {
@@ -95,7 +98,7 @@ h1 {
   }
 }
 
-@media screen and (min-width: 756px) {
+@media screen and (min-width: 756px) and (min-height: 420px) {
   .cards-container {
     gap: 32px;
   }
@@ -184,6 +187,7 @@ h1 {
   bottom: 6vh;
   width: 100%;
   text-align: center;
+  font-size: 0.8rem;
 }
 
 .footer-social-icons {
@@ -225,7 +229,8 @@ h1 {
   }
 }
 
-@media screen and (min-width: 756px) {
+/* @media screen and (min-width: 756px) { */
+@media screen and (min-width: 756px) and (min-height: 420px) {
   .card {
     border-bottom-width: 8px;
     border-radius: 9px;

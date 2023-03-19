@@ -8,7 +8,7 @@ This is a solution to the [Launch countdown timer challenge on Frontend Mentor](
 
 🌐 **Site published at**: [https://codevivi.github.io/launch-countdown-timer](https://codevivi.github.io/launch-countdown-timer)
 
-**Solution URL**: Not Yet
+**Solution URL**: [at frontendmentor](https://www.frontendmentor.io/solutions/html-css-javascript-countdown-with-animation-MAibV9H980)
 
 🎯 **Goals:**
 

@@ -140,6 +140,7 @@
           <form class="set-date-form ">
             <div class="input-group">
               <label for="date">Choose date for your countdown end</label>
+              <!-- pattern attribute is not supported  for datetime-local input, but will be as fallback validation for for text input (if browser do not support datetime-local)-->
               <input id="date" name="date" class="date-input input" type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" required>
             </div>
             <div class="input-group">

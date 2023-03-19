@@ -22,7 +22,7 @@ This is a solution to the [Launch countdown timer challenge on Frontend Mentor](
 
 **Extra features:**
 
-- Set custom countdown date and title.
+- Set custom countdown date and title (Will save to localStorage).
 
 ## Process
 

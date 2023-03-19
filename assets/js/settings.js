@@ -8,7 +8,7 @@ const openSettingsIcon = openSettingsBtn.querySelector("img");
 const settingsEl = document.querySelector(".settings");
 const dateForm = settingsEl.querySelector("form");
 const dateInput = settingsEl.querySelector("#date");
-const titleInput = settingsEl.querySelector("#title");
+const titleInput = settingsEl.querySelector("#countdownTitle");
 
 openSettingsBtn.addEventListener("click", toggleSettings);
 dateForm.addEventListener("submit", setDate);
@@ -18,9 +18,9 @@ function setDate(e) {
   let inputs = getFormData(dateForm);
   let date = new Date(inputs.date);
   localStorage.setItem("countdown-time-stamp", date.getTime().toString());
-  localStorage.setItem("countdown-title", inputs.title);
+  localStorage.setItem("countdown-title", inputs.countdownTitle);
 
-  initTimer(date, inputs.title);
+  initTimer(date, inputs.countdownTitle);
   toggleSettings();
 }
 

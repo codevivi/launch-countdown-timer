@@ -22,10 +22,6 @@ body {
   font-family: "Red Hat Text", sans-serif;
 }
 
-.hidden {
-  display: none;
-}
-
 .bg-1 {
   width: 100%;
   height: 100%;
@@ -434,4 +430,8 @@ h1 {
   to {
     transform: rotateX(-180deg);
   }
+}
+
+.hidden {
+  display: none;
 }

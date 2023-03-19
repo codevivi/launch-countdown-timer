@@ -135,25 +135,25 @@
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
           Coded by <a href="#https://github.com/codevivi">Vilma</a>.
         </div>
-        <div class="settings">
-          <button id="open-settings" class="open-settings-btn" type="button" aria-labe="set countdown date"><img src="./assets/images/settings_gear.svg" alt="setting gear icon"></button>
+        <button id="open-settings" class="open-settings-btn" type="button" aria-labe="set countdown date"><img src="./assets/images/settings_gear.svg" alt="setting gear icon"></button>
+        <div class="settings hidden">
           <form class="set-date-form ">
             <div class="input-group">
               <label for="date">Choose date for your countdown end</label>
-              <input id="date" name="date" class="date-input input" type="date">
+              <input id="date" name="date" class="date-input input" type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" required>
             </div>
             <div class="input-group">
               <label for="title">Countdown title</label>
-              <input id="title" name="title" class="input" type="text">
+              <input id="title" name="title" class="input" type="text" value="We're launching soon" maxlength="50">
             </div>
             <button class="btn submit-btn" type="submit">Set</button>
-
           </form>
         </div>
       </footer>
     </div>
   </div>
-  <script type="module" src="./assets/js/main.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/settings.js"></script>
 </body>
 
 </html>

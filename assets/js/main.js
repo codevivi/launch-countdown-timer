@@ -69,24 +69,28 @@ const minutesDom = new DisplayDom(minutesCardEl, minutesElements, minutesNextEle
 const hoursDom = new DisplayDom(hoursCardEl, hoursElements, hoursNextElements);
 const daysDom = new DisplayDom(daysCardEl, daysElements, daysNextElements);
 
-//same as on design
-// const dueDate = new Date(Date.now() + 1000 * (41 + 55 * 60 + 23 * 3600 + 8 * 86400));
+let countDownTitle = localStorage.getItem("countdown-title") || `We're launching soon`;
+//set due date to be one from localStorage or 14 days (as on design requirements)
+let dueDate = new Date(Number(localStorage.getItem("countdown-time-stamp")) || Date.now() + 1000 * (14 * 86400));
 
-//10 seconds for testing
-// const dueDate = new Date(Date.now() + 1000 * 10);
+let intervalId = null;
+initTimer(dueDate);
 
-//14 days as on requirements
-const dueDate = new Date(Date.now() + 1000 * (14 * 86400));
+function initTimer(dueDate, title = countDownTitle) {
+  titleEl.textContent = title;
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+  if (getFullDaysLeft(dueDate) > 99) {
+    //reduce font size
+    timeEls.forEach((el) => el.classList.add("fit"));
+  }
 
-if (getFullDaysLeft(dueDate) > 99) {
-  //reduce font size
-  timeEls.forEach((el) => el.classList.add("fit"));
-}
-
-calcTimeLeftAndUpdateView(dueDate);
-let intervalId = setInterval(() => {
   calcTimeLeftAndUpdateView(dueDate);
-}, 1000);
+  intervalId = setInterval(() => {
+    calcTimeLeftAndUpdateView(dueDate);
+  }, 1000);
+}
 
 function calcTimeLeftAndUpdateView(dueDate) {
   let unitsLeft = calcUnitsLeft(timeLeftInSeconds(dueDate));

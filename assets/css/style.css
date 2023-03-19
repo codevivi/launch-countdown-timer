@@ -20,6 +20,7 @@ body {
   background-repeat: no-repeat;
   font-size: 14px;
   font-family: "Red Hat Text", sans-serif;
+  min-height: 100%;
 }
 
 .bg-1 {
@@ -33,11 +34,10 @@ body {
   height: 100%;
   background-image: url("../images/pattern-hills.svg");
   background-position-x: 125vw;
-  background-position-y: 94%;
+  background-position-y: 100%;
   background-size: 154vh;
   background-attachment: fixed;
   background-repeat: repeat-x;
-  min-height: 500px;
 }
 
 @media screen and (min-width: 776px) {
@@ -239,6 +239,7 @@ h1 {
   color: #8486a9;
   background-color: #191a24;
   text-align: left;
+  z-index: 20;
 }
 .settings form {
   margin: 0;
@@ -307,7 +308,6 @@ h1 {
   }
 }
 
-/* @media screen and (min-width: 756px) { */
 @media screen and (min-width: 756px) and (min-height: 420px) {
   .card {
     border-bottom-width: 8px;
@@ -338,6 +338,7 @@ h1 {
     bottom: 8vh;
   }
 }
+
 @media screen and (min-width: 1500px) {
   .card {
     border-bottom-width: 12px;

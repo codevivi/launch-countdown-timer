@@ -10,7 +10,7 @@ class DisplayDom {
       value = 0;
     }
 
-    value = pad0(value);
+    value = formatNumber(value);
     let currentValue = this.currentEls[0].textContent;
 
     if (!currentValue) {
@@ -18,11 +18,11 @@ class DisplayDom {
       currentValue = value;
 
       this.currentEls.forEach((el) => {
-        el.textContent = pad0(value);
+        el.textContent = formatNumber(value);
       });
 
       this.nextEls.forEach((el) => {
-        el.textContent = pad0(value);
+        el.textContent = formatNumber(value);
       });
     }
 
@@ -137,7 +137,7 @@ function getFullDaysLeft(dueDate) {
   return Math.floor(seconds / (3600 * 24));
 }
 
-function pad0(num) {
+function formatNumber(num) {
   let str = num.toString();
   if (str.length < 2) {
     str = "0" + str;

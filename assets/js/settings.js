@@ -1,5 +1,5 @@
 //function initTimer must be available globally for settings to work
-//initTimer is defined in main.js. main.js must run before this file
+//initTimer and formatNumber functions are defined in main.js. main.js must run before this file
 
 "use strict";
 
@@ -50,7 +50,7 @@ function dateToAttrString(date) {
   let day = date.getDate();
   let hour = date.getHours();
   let minute = date.getMinutes();
-  return `${year}-${pad0(month)}-${pad0(day)}T${pad0(hour)}:${pad0(minute)}`;
+  return `${year}-${formatNumber(month)}-${formatNumber(day)}T${formatNumber(hour)}:${formatNumber(minute)}`;
 }
 
 function getFormData(form) {

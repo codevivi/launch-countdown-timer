@@ -1,3 +1,4 @@
+const CSS_ANIMATION_TIME = 900; // do not change, has to mach numbers in CSS
 class DisplayDom {
   constructor(card, currentEls, nextEls) {
     this.cardEl = card;
@@ -41,7 +42,7 @@ class DisplayDom {
         el.textContent = value;
       });
       this.cardEl.classList.remove("action");
-    }, 900);
+    }, CSS_ANIMATION_TIME);
   }
 }
 

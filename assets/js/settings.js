@@ -53,14 +53,6 @@ function dateToAttrString(date) {
   return `${year}-${pad0(month)}-${pad0(day)}T${pad0(hour)}:${pad0(minute)}`;
 }
 
-function pad0(num) {
-  let str = num.toString();
-  if (str.length === 1) {
-    return "0" + str;
-  }
-  return str;
-}
-
 function getFormData(form) {
   const formData = new FormData(form);
   let data = {};

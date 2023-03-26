@@ -1,0 +1,25 @@
+.title {
+  display: block;
+  max-width: 80%;
+  margin: 0 auto 8.5vh auto;
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 0.335em;
+  line-height: 1.268em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 756px) {
+  .title {
+    margin-bottom: 13.5vh;
+    font-size: 20px;
+    letter-spacing: 0.44em;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .title {
+    font-size: 1.5vw;
+  }
+}

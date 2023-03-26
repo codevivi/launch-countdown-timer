@@ -6,19 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Launch countdown timer</title>
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/page-bg.css">
+  <link rel="stylesheet" href="./assets/css/title.css">
+  <link rel="stylesheet" href="./assets/css/card.css">
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body>
+<body class="minimum-whole-screen bg-1">
 
-  <div class="bg-1">
-    <div class="bg-2">
-      <main>
+  <div class="minimum-whole-screen bg-2">
+    <div class="minimum-whole-screen bg-3">
+      <main class="minimum-whole-screen main">
 
-        <h1 id="title">We're launching soon</h1>
-        <div class="cards-container">
+        <h1 class="title" id="title">We're launching soon</h1>
+        <div class="cards-row">
 
-          <div class="card-wrapper">
+          <div class="cards-column">
             <div id="days" class="card ">
               <div class="display next-top">
                 <span class="time days-next"></span>
@@ -40,7 +45,7 @@
             <p class="card-text">Days</p>
           </div>
 
-          <div class="card-wrapper">
+          <div class="cards-column">
             <div id="hours" class="card">
 
               <div class="display next-top">
@@ -63,7 +68,7 @@
             <p class="card-text">Hours</p>
           </div>
 
-          <div class="card-wrapper">
+          <div class="cards-column">
             <div id="minutes" class="card">
 
               <div class="display next-top">
@@ -86,7 +91,7 @@
             <p class="card-text">Minutes</p>
           </div>
 
-          <div class="card-wrapper">
+          <div class="cards-column">
             <div id="seconds" class="card">
 
               <div class="display next-top">

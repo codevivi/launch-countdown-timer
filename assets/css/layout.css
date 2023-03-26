@@ -1,0 +1,64 @@
+.minimum-whole-screen {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main {
+  padding-top: 21.3vh;
+}
+
+@media screen and (min-width: 756px) {
+  .main {
+    padding-top: 17vh;
+  }
+}
+
+.cards-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (min-width: 245px) {
+  .cards-row {
+    gap: 6px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .cards-row {
+    gap: 16px;
+  }
+}
+@media screen and (min-width: 756px) and (min-height: 420px) {
+  .cards-row {
+    gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .cards-row {
+    gap: 48px;
+  }
+}
+.cards-column {
+  background-color: green;
+}
+.cards-column {
+  /* box-sizing: content-box; */
+  width: 25%;
+  max-width: 70px;
+  /* flex: 1 1 25%; */
+}
+
+@media screen and (min-width: 756px) and (min-height: 420px) {
+  .cards-column {
+    max-width: 148px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .cards-column {
+    max-width: 211px;
+  }
+}

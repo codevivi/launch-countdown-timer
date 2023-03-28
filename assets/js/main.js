@@ -1,4 +1,4 @@
-const CSS_ANIMATION_TIME = 900; // do not change, has to mach numbers in CSS
+const CSS_ANIMATION_TIME = 980; // do not change, has to mach numbers in CSS
 class DisplayDom {
   constructor(card, currentEls, nextEls) {
     this.cardEl = card;

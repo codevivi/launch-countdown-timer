@@ -15,9 +15,11 @@
 
 .cards-row {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-center;
   justify-content: center;
   width: 100%;
+  /* height: auto; */
+  background-color: yellow;
 }
 
 @media screen and (min-width: 245px) {
@@ -41,14 +43,11 @@
     gap: 48px;
   }
 }
-.cards-column {
-  background-color: green;
-}
+
 .cards-column {
   /* box-sizing: content-box; */
   width: 25%;
   max-width: 70px;
-  /* flex: 1 1 25%; */
 }
 
 @media screen and (min-width: 756px) and (min-height: 420px) {

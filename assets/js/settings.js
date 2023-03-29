@@ -1,17 +1,19 @@
 //function initTimer must be available globally for settings to work
-//initTimer and formatNumber functions are defined in main.js. main.js must run before this file
+//initTimer, resetExample and formatNumber functions are defined in main.js. main.js must run before this file
 
 "use strict";
 
 const openSettingsBtn = document.getElementById("open-settings");
 const openSettingsIcon = openSettingsBtn.querySelector("img");
 const settingsEl = document.querySelector(".settings");
+const resetExampleBtn = document.querySelector(".reset-btn");
 const dateForm = settingsEl.querySelector("form");
 const dateInput = settingsEl.querySelector("#date");
 const titleInput = settingsEl.querySelector("#countdownTitle");
 
 openSettingsBtn.addEventListener("click", toggleSettings);
 dateForm.addEventListener("submit", setDate);
+resetExampleBtn.addEventListener("click", resetExample);
 
 function setDate(e) {
   e.preventDefault();
@@ -22,6 +24,15 @@ function setDate(e) {
 
   initTimer(date, inputs.countdownTitle);
   toggleSettings();
+}
+
+function resetExample() {
+  localStorage.clear();
+  clearInterval(intervalId);
+  setTimeout(() => {
+    // titleInput.value = getTitle();
+    initTimer();
+  }, 1000);
 }
 
 function toggleSettings() {
@@ -38,7 +49,7 @@ function toggleSettings() {
     dateInput.setAttribute("min", dateToAttrString(minDate));
     dateInput.setAttribute("max", dateToAttrString(maxDate));
     dateInput.value = dateToAttrString(new Date(Number(localStorage.getItem("countdown-time-stamp")) || defaultDate));
-    titleInput.value = localStorage.getItem("countdown-title") || "";
+    titleInput.value = localStorage.getItem("countdown-title") || "We're launching soon";
   } else {
     openSettingsIcon.src = "./assets/images/settings_gear.svg";
   }

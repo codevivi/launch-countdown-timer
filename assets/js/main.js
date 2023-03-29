@@ -1,6 +1,12 @@
-const parseUrl = new URL(window.location.href);
-console.log(parseUrl.searchParams.get("id"));
+// const parseUrl = new URL(window.location.href);
+// console.log(parseUrl.searchParams.get("id"));
 const CSS_ANIMATION_TIME = 980; // do not change, has to mach numbers in CSS
+let defaultDate = {
+  d: 14,
+  h: 0,
+  m: 0,
+  s: 0,
+};
 class DisplayDom {
   constructor(card, currentEls, nextEls) {
     this.cardEl = card;
@@ -72,14 +78,14 @@ const minutesDom = new DisplayDom(minutesCardEl, minutesElements, minutesNextEle
 const hoursDom = new DisplayDom(hoursCardEl, hoursElements, hoursNextElements);
 const daysDom = new DisplayDom(daysCardEl, daysElements, daysNextElements);
 
-let countDownTitle = localStorage.getItem("countdown-title") || `We're launching soon`;
-//set due date to be one from localStorage or 14 days (as on design requirements)
-let dueDate = new Date(Number(localStorage.getItem("countdown-time-stamp")) || Date.now() + 1000 * (14 * 86400));
+// let countDownTitle = localStorage.getItem("countdown-title") || `We're launching soon`;
+// let dueDate = new Date(Number(localStorage.getItem("countdown-time-stamp")) || Date.now() + 1000 * (14 * 86400));
+// let dueDate = getDueDate();
 
 let intervalId = null;
-initTimer(dueDate);
+initTimer();
 
-function initTimer(dueDate, title = countDownTitle) {
+function initTimer(dueDate = getDueDate(), title = getTitle()) {
   titleEl.textContent = title;
   if (intervalId) {
     clearInterval(intervalId);
@@ -93,6 +99,15 @@ function initTimer(dueDate, title = countDownTitle) {
   intervalId = setInterval(() => {
     calcTimeLeftAndUpdateView(dueDate);
   }, 1000);
+}
+
+function getDueDate() {
+  //set due date to be one from localStorage or 14 days (as on design requirements)
+  return new Date(Number(localStorage.getItem("countdown-time-stamp")) || Date.now() + 1000 * (14 * 86400));
+}
+
+function getTitle() {
+  return localStorage.getItem("countdown-title") || `We're launching soon`;
 }
 
 function calcTimeLeftAndUpdateView(dueDate) {

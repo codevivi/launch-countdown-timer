@@ -41,20 +41,39 @@
   color: #191a24;
   outline: none;
 }
-.settings .submit-btn {
-  float: right;
+
+.btn {
   padding: 0.5rem 1rem;
-  background-color: #8486a9;
-  color: white;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
 }
-.settings .submit-btn:hover,
-.settings .submit-btn:focus {
+
+.reset-btn {
+  color: #8486a9;
+  background-color: #191a24;
+  border: 1px solid #8486a9;
+}
+
+.reset-btn:hover,
+.reset-btn:focus {
+  color: #fb6087;
+  border-color: #fb6087;
+}
+
+.submit-btn {
+  float: right;
+  color: white;
+  color: #191a24;
+  background-color: #8486a9;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
   background-color: #fb6087;
 }
+
 .open-settings-btn {
   background-color: transparent;
   border: none;

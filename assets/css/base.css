@@ -16,6 +16,17 @@ body {
   display: none !important;
 }
 
+a {
+  color: inherit;
+  color: #a1a2c7;
+  transition: color 250ms;
+}
+
+a:focus,
+a:hover {
+  color: #fb6087;
+}
+
 .rounded {
   border-radius: 5px;
 }

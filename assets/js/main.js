@@ -1,3 +1,5 @@
+const parseUrl = new URL(window.location.href);
+console.log(parseUrl.searchParams.get("id"));
 const CSS_ANIMATION_TIME = 980; // do not change, has to mach numbers in CSS
 class DisplayDom {
   constructor(card, currentEls, nextEls) {

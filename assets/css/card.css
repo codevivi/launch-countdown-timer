@@ -21,6 +21,7 @@
 .half.top {
   background-color: #2c2c44;
   color: #d54f6b;
+  border-top: 1px solid transparent;
 }
 
 .half.bottom {
@@ -35,6 +36,7 @@
 .half.bottom.next {
   bottom: 50%;
   transform: rotateX(-90deg);
+  border-top: 1px solid #191a24;
 }
 
 .action .half.top.current {
@@ -42,6 +44,7 @@
   transition: all 480ms ease-in;
   background-color: #343650;
   color: #fb6087;
+  border-top: 1px solid #191a24;
 }
 
 .action .half.bottom.next {

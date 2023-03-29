@@ -1,0 +1,67 @@
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 3rem;
+  right: 1rem;
+  padding: 2rem;
+  color: #8486a9;
+  background-color: #191a24;
+  border-radius: 8px;
+  text-align: left;
+  z-index: 20;
+}
+.settings form {
+  min-width: 250px;
+  margin: 0;
+}
+
+.settings .input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+.settings label {
+  margin-bottom: 0.3rem;
+}
+.settings input {
+  padding: 0.3rem;
+  background-color: #8486a9;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.2em;
+}
+.settings input:focus {
+  background-color: white;
+  color: #191a24;
+  outline: none;
+}
+.settings .submit-btn {
+  float: right;
+  padding: 0.5rem 1rem;
+  background-color: #8486a9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.settings .submit-btn:hover,
+.settings .submit-btn:focus {
+  background-color: #fb6087;
+}
+.open-settings-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.open-settings-btn img {
+  width: 32px;
+  height: 32px;
+}

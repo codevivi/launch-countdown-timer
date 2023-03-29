@@ -1,12 +1,10 @@
 html {
   /* bg-0 */
-  background: #1a1823;
+  background-color: #1a1823;
 }
-
-.bg-1 {
+body.bg-1 {
   background: rgba(26, 24, 35, 0.712);
   background: linear-gradient(0deg, rgba(53, 32, 70, 0.438) 0%, #1e1e287a 70%);
-  /* background-repeat: no-repeat; */
 }
 
 .bg-2 {
@@ -14,9 +12,11 @@ html {
 }
 
 .bg-3 {
+  background-color: transparent;
   background-image: url("../images/pattern-hills.svg");
   background-position-x: 125vw;
   background-position-y: 100%;
+  background-position-y: bottom;
   background-size: 154vh;
   background-attachment: fixed;
   background-repeat: repeat-x;

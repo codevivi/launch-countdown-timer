@@ -8,12 +8,12 @@ body.bg-1 {
 }
 
 .bg-2 {
-  background-image: url("../images/bg-stars.svg");
+  background-image: url("./../images/bg-stars.svg");
 }
 
 .bg-3 {
   background-color: transparent;
-  background-image: url("../images/pattern-hills.svg");
+  background-image: url("./../images/pattern-hills.svg");
   background-position-x: 125vw;
   background-position-y: 100%;
   background-position-y: bottom;

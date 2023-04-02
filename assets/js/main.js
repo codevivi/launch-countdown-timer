@@ -1,4 +1,6 @@
 const CSS_ANIMATION_TIME = 980; // do not change, has to mach numbers in CSS
+// const BASE_URL = "https://codevivi.github.io/launch-countdown-timer";
+const BASE_URL = "http://127.0.0.1:5500/index.html";
 let defaultDate = {
   d: 14,
   h: 0,
@@ -76,48 +78,17 @@ const minutesDom = new DisplayDom(minutesCardEl, minutesElements, minutesNextEle
 const hoursDom = new DisplayDom(hoursCardEl, hoursElements, hoursNextElements);
 const daysDom = new DisplayDom(daysCardEl, daysElements, daysNextElements);
 
+const baseLinkEl = document.getElementById("base-link");
+const linkToCurrentCountDownEl = document.getElementById("link-to-current-countdown");
+const linkToCurrentCountDownWrapperEl = document.querySelector(".link-to-current-countdown-wrapper");
+baseLinkEl.setAttribute("href", BASE_URL);
+
 // let countDownTitle = localStorage.getItem("countdown-title") || `We're launching soon`;
 // let dueDate = new Date(Number(localStorage.getItem("countdown-time-stamp")) || Date.now() + 1000 * (14 * 86400));
 // let dueDate = getDueDate();
 
 let intervalId = null;
 initTimer();
-
-function getUrlDate() {
-  const parseUrl = new URL(window.location.href);
-  let date = parseUrl.searchParams.get("date");
-  if (!date) {
-    return false;
-  }
-  try {
-    date = new Date(Number(date));
-    return date;
-  } catch {
-    return false;
-  }
-}
-function getUrlTitle() {
-  const parseUrl = new URL(window.location.href);
-  let title = parseUrl.searchParams.get("title");
-  if (!title) {
-    return false;
-  }
-  console.log(title);
-  return title;
-}
-getUrlTitle();
-
-function createUrlLink() {
-  const base = `http://127.0.0.1:5500/index.html`;
-  const date = new Date(getDueDate()).getTime().toString();
-  const title = getTitle();
-  let url = `${base}?date=${date}&title=${title}`;
-  console.log(url);
-  return url;
-}
-createUrlLink();
-
-getUrlDate();
 
 function initTimer(dueDate = getDueDate(), title = getTitle()) {
   titleEl.textContent = title;
@@ -137,7 +108,7 @@ function initTimer(dueDate = getDueDate(), title = getTitle()) {
 
 function getDueDate() {
   //set due date to be one from localStorage or 14 days (as on design requirements)
-  return getUrlDate() || new Date(Number(localStorage.getItem("countdown-time-stamp")) || Date.now() + 1000 * (14 * 86400));
+  return getUrlDate() || getLocalStorageDateAndSetUrlLink() || new Date(Date.now() + 1000 * (14 * 86400));
 }
 
 function getTitle() {
@@ -194,4 +165,55 @@ function formatNumber(num) {
     str = "0" + str;
   }
   return str;
+}
+
+function getLocalStorageDateAndSetUrlLink() {
+  try {
+    let date = localStorage.getItem("countdown-time-stamp");
+    if (!date) {
+      return false;
+    }
+    createAndInsertUrlLink(date);
+    return new Date(Number(date));
+  } catch {
+    return false;
+  }
+}
+console.log(new Date(localStorage.getItem("bla")));
+
+function getUrlDate() {
+  const parseUrl = new URL(window.location.href);
+  let date = parseUrl.searchParams.get("date");
+  if (!date) {
+    return false;
+  }
+  try {
+    date = new Date(Number(date));
+    return date;
+  } catch {
+    return false;
+  }
+}
+
+function getUrlTitle() {
+  const parseUrl = new URL(window.location.href);
+  let title = parseUrl.searchParams.get("title");
+  if (!title) {
+    return false;
+  }
+  if (title.endsWith("/")) title = title.slice(0, -1);
+  console.log(title);
+  return title;
+}
+
+function createAndInsertUrlLink(date) {
+  const base = `http://127.0.0.1:5500/index.html`;
+  // const date = new Date(getDueDate()).getTime().toString();
+  const title = getTitle();
+  let url = `${base}?date=${date}&title=${title}`;
+  if (linkToCurrentCountDownWrapperEl.classList.contains("hidden")) {
+    linkToCurrentCountDownWrapperEl.classList.remove("hidden");
+  }
+  linkToCurrentCountDownEl.setAttribute("href", url);
+  linkToCurrentCountDownEl.textContent = url;
 }

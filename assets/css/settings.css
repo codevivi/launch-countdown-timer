@@ -84,3 +84,11 @@
   width: 32px;
   height: 32px;
 }
+
+.link-to-current-countdown-wrapper {
+  padding-top: 2em;
+}
+.link-to-current-countdown-wrapper h3 {
+  margin-bottom: 0.3em;
+  color: #b5b8e7;
+}

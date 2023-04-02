@@ -207,10 +207,8 @@ function getUrlTitle() {
 }
 
 function createAndInsertUrlLink(date) {
-  const base = `http://127.0.0.1:5500/index.html`;
-  // const date = new Date(getDueDate()).getTime().toString();
   const title = getTitle();
-  let url = `${base}?date=${date}&title=${title}`;
+  let url = `${BASE_URL}?date=${date}&title=${title}`;
   if (linkToCurrentCountDownWrapperEl.classList.contains("hidden")) {
     linkToCurrentCountDownWrapperEl.classList.remove("hidden");
   }

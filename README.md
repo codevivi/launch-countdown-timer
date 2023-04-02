@@ -23,6 +23,8 @@ This is a solution to the [Launch countdown timer challenge on Frontend Mentor](
 **Extra features:**
 
 - Set custom countdown date and title (Will save to localStorage).
+- Generates link with url parameters to current countdown.
+- Clear current count down and show example countdown.
 
 ## Process
 

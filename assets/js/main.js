@@ -1,4 +1,4 @@
-const CSS_ANIMATION_TIME = 980; // do not change, has to mach numbers in CSS
+const CSS_ANIMATION_TIME = 950; // do not change, has to be slightly less than animation duration in CSS
 const BASE_URL = "https://codevivi.github.io/launch-countdown-timer";
 // const BASE_URL = "http://127.0.0.1:5500/index.html";
 let defaultDate = {
